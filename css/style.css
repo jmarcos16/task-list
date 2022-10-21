@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    height: 100vh;
+}
+
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 0 !important;
+}
+
+.object-list {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+}
+
+.new-task .button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 20px;
+    padding: 0 10px;
+    border: 1px solid #0b5dd760;
+    margin: 0 3px;
+}
+
+.new-task .button.success {
+    border: 1px solid #15734765;
+}
+
+.new-task .button.error {
+    border: 1px solid #bb2d3b59;
+}
+
+.new-task .button:hover {
+    color: #fff;
+    background: #0B5ED7;
+}
+
+.new-task .button.success:hover {
+    background: #157347;
+}
+
+.new-task .button.error:hover {
+    background: #BB2D3B;
+}
+
+
+/* TABLE STYLE */
+
+thead tr,
+tbody tr {
+    vertical-align: middle;
+}
+
+tbody tr {
+    cursor: pointer;
+}
+
+tr.selected {
+    background: #EEE;
+}
+
+tr.concluded {
+    background: #D1E7DD;
+}
+
+.progress-bar {
+    font-weight: bold !important;
+    overflow: visible !important;
+    padding: 0 4px;
+}
+
+span.progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 1px;
+    font-weight: 500;
+    width: 100px;
+    border: 1px solid rgba(189, 189, 189, 0.384);
+}
+
+span.concluded {
+    background: green;
+    color: #fff !important;
+}
+
+span.in-progress {
+    background: #FFF3CD;
+}
+
+span.concluded::before {
+    content: "Concluded";
+}
+
+span.pending::before {
+    content: "Pending";
+}
+
+span.in-progress::before {
+    content: "In Progress";
+}
