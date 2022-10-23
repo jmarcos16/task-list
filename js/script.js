@@ -19,9 +19,8 @@ const system = {
     const items = JSON.parse(localStorage.getItem("items"));
     if (items) {
       return items;
-    } else {
-      return [];
     }
+    return [];
   },
 };
 
@@ -89,7 +88,7 @@ const renderTaskDataList = () => {
 };
 
 const selectItemOfList = () => {
-  let itemList = document.querySelectorAll(".item-list");
+  const itemList = document.querySelectorAll(".item-list");
 
   itemList.forEach((item) => {
     item.removeEventListener("click", activeCheckboxofList);
@@ -100,15 +99,17 @@ const selectItemOfList = () => {
 
   function activeCheckboxofList(element) {
     element.currentTarget.classList.toggle("selected");
-    if (element.currentTarget.classList.contains("selected"))
+    if (element.currentTarget.classList.contains("selected")) {
       element.currentTarget.querySelector("input").checked = true;
-    else element.currentTarget.querySelector("input").checked = false;
+    } else {
+      element.currentTarget.querySelector("input").checked = false;
+    }
   }
 };
 
 const deleteTaksList = () => {
-  dataTaks = system.getLocalStorage();
-  selectedTask = controls.tableTask.querySelectorAll("input");
+  const dataTaks = system.getLocalStorage();
+  const selectedTask = controls.tableTask.querySelectorAll("input");
   selectedTask.forEach((item) => {
     if (item.checked === true) {
       removeItemWithID(dataTaks, item.parentNode.parentNode.id);
@@ -117,7 +118,7 @@ const deleteTaksList = () => {
     }
   });
   function removeItemWithID(array, id) {
-    let result = array.filter((elemento) => {
+    const result = array.filter((elemento) => {
       return elemento.id == id;
     });
 
@@ -130,8 +131,8 @@ const deleteTaksList = () => {
 };
 
 const concludTaskList = () => {
-  dataTaks = system.getLocalStorage();
-  selectedTask = controls.tableTask.querySelectorAll("input");
+  const dataTaks = system.getLocalStorage();
+  const selectedTask = controls.tableTask.querySelectorAll("input");
   selectedTask.forEach((item) => {
     if (item.checked === true) {
       dataTaks.map((elemento) => {
@@ -151,7 +152,7 @@ const concludTaskList = () => {
 };
 
 const createTaskHTML = (item) => {
-  let progress = CalculatesDifferenceOfHoursinPercentage(
+  const progress = CalculatesDifferenceOfHoursinPercentage(
     item.created_at,
     item.duedate,
     item.id
